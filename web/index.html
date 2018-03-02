@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+  </head>
+  <body>
+    <script type="text/javascript" src="wykobi.js"></script>
+    <script type='text/javascript'>
+      f = Module.cwrap(
+        'segmentIntersect',
+        'number',
+        ['number', 'number', 'number' ,'number'])
+    </script>
+    <script type='text/javascript'>
+      f(110.0,120.0,230.0,340.0)
+    </script>
+  </body>
+</html>

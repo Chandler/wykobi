@@ -17,11 +17,14 @@
 #  ***********************************************************************
 #
 
+# OPTIONS      = -pedantic-errors -Wall -Wextra -Werror -O3 -o
+# OPTIONS_LIBS = -pedantic-errors -Wall -Wextra -Werror -O3 -c
 
-COMPILER     = -c++
-#COMPILER    = -clang
-OPTIONS      = -pedantic-errors -Wall -Wextra -Werror -O3 -o
-OPTIONS_LIBS = -pedantic-errors -Wall -Wextra -Werror -O3 -c
+# COMPILER     = -c++
+COMPILER    = -clang
+# COMPILTER = -emcc
+OPTIONS      = -o
+OPTIONS_LIBS = -c
 LINKER_OPT   = -L/usr/lib -lstdc++ -lm
 
 CPP_SRC =
@@ -31,7 +34,7 @@ OBJECTS = $(CPP_SRC:.cpp=.o)
 %.o: %.hpp %.cpp
 	$(COMPILER) $(OPTIONS_LIBS) $*.cpp -o $@
 
-all: $(OBJECTS) wykobi_build 
+all: $(OBJECTS) wykobi_build
 
 wykobi_build : wykobi_build.cpp wykobi.hpp wykobi_math.hpp $(OBJECTS)
 	$(COMPILER) $(OPTIONS) wykobi_build wykobi_build.cpp $(OBJECTS) $(LINKER_OPT)
